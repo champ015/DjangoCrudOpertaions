@@ -1,0 +1,30 @@
+{%extends 'student/index.html'%}
+{%block content%}
+<table class="table table-borderless">
+    <thead class="border-bottom font-weight-bold">
+        <tr>
+            <td>FirstName</td>
+            <td>LastName</td>
+            <td>Mobile</td>
+            <td>Position</td>
+            <td><a href="{%url 'insert' %}" class="btn btn-secondary"><i class="fas fa-plus"></i>AddNew</a></td>
+        </tr>
+    </thead>
+    <tbody>
+        {%for student in studentlist %}
+        <tr>
+            <td>{{student.firstname}}</td>
+            <td>{{student.lastname}}</td>
+            <td>{{student.mobile}}</td>
+            <td>{{student.position}}</td>
+            <td><a href="{%url 'updatedata' student.id%}" class="btn btn-edit"><i class="fas fas-edit">Update</i></td>
+            <td>
+                <form action="" method="post" class="d-inline">
+                    <a href="{%url 'deletedata' student.id%}" class="btn btn-danger"><i class="fas fa-danger"> Delete</i></a>
+                </form>
+            </td>
+        </tr>
+        {%endfor%}
+        
+    </tbody>
+{%endblock%}

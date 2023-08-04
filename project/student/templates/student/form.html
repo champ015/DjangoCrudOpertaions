@@ -1,0 +1,33 @@
+{%extends 'student/index.html'%}
+{%load crispy_forms_tags%}
+{%block content%} 
+<form action="" method="post" autocomplete="off">
+    {%csrf_token%}
+    <div class="row">
+        <div class="col-md-8">
+            {{form.firstname|as_crispy_field}}
+            {{form.lastname|as_crispy_field}}
+            {{form.mobile|as_crispy_field}}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            {{form.empcode|as_crispy_field}}
+        </div>
+        <div class="col-md-8">
+            {{form.position|as_crispy_field}}
+        </div>
+    </div>
+    <div class="row">
+    <div class="col-md-8">
+        <button type="submit" class="btn btn-secondary btn-block btn-large">
+            <i class="fas fa-database"></i>
+        </button>
+    </div>
+    <div class="col-md-4">
+        <a href="{%url 'list' %}" class="btn btn-secondary"><i class="fas fa-text">BackToContent</i>
+        </a>
+    </div>
+    </div>
+</form>
+{%endblock%}
